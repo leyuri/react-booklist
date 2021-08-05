@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 // import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -8,15 +9,17 @@ import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 
-export default function BookList() {
-
+function BookList({ books }) {
     return (
         <List component="nav" aria-label="main list">
             {books.map(item => {
                 return (
                     <div>
                         <ListItem button>
-                            <ListItemText primary={item} />
+                            <ListItemText
+                                primary={item.title}
+                                secondary={item.subtitle}
+                            />
                         </ListItem>
                         <Divider />
                     </div>
@@ -25,3 +28,12 @@ export default function BookList() {
         </List>
     )
 }
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        books: state.books
+    }
+}
+
+export default connect(mapStateToProps)(BookList)
+

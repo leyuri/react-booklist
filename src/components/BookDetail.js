@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -13,14 +14,17 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     // maxWidth: 345,
     marginTop : '10px'
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    height: 300,
+    width: 200,
+    border: '1px solid gray',
+    marginLeft: '15px'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -37,34 +41,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BookDetail() {
+function BookDetail({book}) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={book.title}
+        subheader={book.subtitle}
       />
       <CardMedia
         className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
+        image={book.img}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+        {book.desc}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -74,8 +66,17 @@ export default function BookDetail() {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-     
       </CardActions>
     </Card>
   );
 }
+
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        book: state.selected
+    }
+}
+
+export default connect(mapStateToProps)(BookDetail)
+
