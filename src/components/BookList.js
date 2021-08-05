@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
+import Badge from '@material-ui/core/Badge';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
 
 function BookList({ books }) {
     return (
@@ -20,6 +19,9 @@ function BookList({ books }) {
                                 primary={item.title}
                                 secondary={item.subtitle}
                             />
+                            <Badge badgeContent={item.likes} color="secondary">
+                                <FavoriteIcon style={{color: 'pink'}}/>
+                            </Badge>
                         </ListItem>
                         <Divider />
                     </div>
