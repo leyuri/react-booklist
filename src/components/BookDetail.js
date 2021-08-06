@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,11 +37,19 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+  alert : {
+    marginTop : '20px'
+  }
 }));
 
 function BookDetail({book}) {
   const classes = useStyles();
 
+  if (!book) { 
+      return (
+        <Alert className={classes.alert} severity="warning">No book selected</Alert>
+      )
+  }
   return (
     <Card className={classes.root}>
       <CardHeader
