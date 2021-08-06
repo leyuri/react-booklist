@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -45,11 +44,4 @@ function TopNavBar({ addNewBook }) {
     );
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ addNewBook }, dispatch)
-}
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(TopNavBar)
+export default connect(null,{ addNewBook })(TopNavBar)
