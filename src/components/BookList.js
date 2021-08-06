@@ -8,13 +8,18 @@ import Badge from '@material-ui/core/Badge';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 
-function BookList({ books }) {
+function BookList({ books, dispatch }) {
     return (
         <List component="nav" aria-label="main list">
             {books.map(item => {
                 return (
-                    <div>
-                        <ListItem button>
+                    <div >
+                        <ListItem button onClick={() => {
+                            // console.log("item", item);
+                            // console.log("dispatch", dispatch);
+                            // alert(item.title); 
+                              dispatch({type : 'BOOK_SELECT', payload : item})
+                        }} >
                             <ListItemText
                                 primary={item.title}
                                 secondary={item.subtitle}

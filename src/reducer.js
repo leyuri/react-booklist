@@ -81,6 +81,7 @@ const initialState = {
 // initialState.selected = initialState.books[0];
 
 function reducer(state = initialState, action) {
+    // console.log("action",action);
     switch (action.type) {
         case 'BOOK_SELECT' :
             return {
