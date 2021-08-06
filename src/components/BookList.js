@@ -13,11 +13,8 @@ function BookList({ books, dispatch }) {
         <List component="nav" aria-label="main list">
             {books.map(item => {
                 return (
-                    <div >
+                    <div key={item.title}>
                         <ListItem button onClick={() => {
-                            // console.log("item", item);
-                            // console.log("dispatch", dispatch);
-                            // alert(item.title); 
                               dispatch({type : 'BOOK_SELECT', payload : item})
                         }} >
                             <ListItemText

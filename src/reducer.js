@@ -81,12 +81,24 @@ const initialState = {
 // initialState.selected = initialState.books[0];
 
 function reducer(state = initialState, action) {
-    // console.log("action",action);
+    console.log("action", action);
+    console.log("state", state);
     switch (action.type) {
         case 'BOOK_SELECT' :
             return {
                 books: state.books,
                 selected: action.payload
+            }
+        case 'BOOK_LIKE' :
+            const newBooks = state.books.map((book) => {
+                if (book.title === action.title) {
+                    book.likes += 1;
+                }
+                return book;
+            })
+            return {
+                books: newBooks,
+                selected: state.selected
             }
         default:
             return state;

@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function BookDetail({book}) {
+function BookDetail({ book, dispatch}) {
   const classes = useStyles();
 
   if (!book) { 
@@ -70,7 +70,14 @@ function BookDetail({book}) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={
+          () => {
+            dispatch({
+              type: 'BOOK_LIKE',
+              title: book.title
+            })
+          }
+        }>
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
