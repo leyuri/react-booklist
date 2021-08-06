@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-  export default function TopNavBar() {
+function TopNavBar({dispatch}) {
     const classes = useStyles();
   
     return (
@@ -32,9 +33,17 @@ const useStyles = makeStyles((theme) => ({
             <Typography variant="h6" className={classes.title}>
               BookList
             </Typography>
-            <Button color="inherit">Add</Button>
+            <Button color="inherit" onClick={()=>{
+                dispatch({type: 'BOOK_ADD'})
+            }}>Add</Button>
           </Toolbar>
         </AppBar>
       </div>
     );
   }
+
+
+
+
+export default connect(
+)(TopNavBar)
