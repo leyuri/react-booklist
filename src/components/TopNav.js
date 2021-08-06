@@ -12,39 +12,46 @@ import { addNewBook } from '../action';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
+        flexGrow: 1,
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+        marginRight: theme.spacing(2),
     },
     title: {
-      flexGrow: 1,
+        flexGrow: 1,
     },
-  }));
+}));
 
-function TopNavBar({dispatch}) {
+function TopNavBar({ addNewBook }) {
     const classes = useStyles();
-  
+
     return (
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              BookList
-            </Typography>
-            <Button color="inherit" onClick={()=>{
-                dispatch(
-                    addNewBook()
-                )
-            }}>Add</Button>
-          </Toolbar>
-        </AppBar>
-      </div>
+        <div className={classes.root}>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" className={classes.title}>
+                        BookList
+                    </Typography>
+                    <Button color="inherit" onClick={() => {
+                        addNewBook()
+                    }}>Add</Button>
+                </Toolbar>
+            </AppBar>
+        </div>
     );
-  }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        // dispatching plain actions
+        addNewBook: () => dispatch(addNewBook()),
+    }
+}
 
 export default connect(
+    null,
+    mapDispatchToProps
 )(TopNavBar)
