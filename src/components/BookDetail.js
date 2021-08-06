@@ -56,10 +56,14 @@ function BookDetail({book}) {
         title={book.title}
         subheader={book.subtitle}
       />
-      <CardMedia
-        className={classes.media}
-        image={book.img}
-      />
+      {
+        book.img && (
+          <CardMedia
+          className={classes.media}
+          image={book.img}
+        />
+        )
+      }
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
         {book.desc}
