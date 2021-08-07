@@ -7,12 +7,13 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { addNewBook } from '../action';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -20,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
+    appbar: {
+        background : '#2E3B55'
+    }
 }));
 
 function TopNavBar({ addNewBook }) {
@@ -27,7 +31,7 @@ function TopNavBar({ addNewBook }) {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar className={classes.appbar} position="static">
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon />
@@ -37,7 +41,7 @@ function TopNavBar({ addNewBook }) {
                     </Typography>
                     <Button color="inherit" onClick={() => {
                         addNewBook()
-                    }}>Add</Button>
+                    }}><AddCircleIcon /></Button>
                 </Toolbar>
             </AppBar>
         </div>
