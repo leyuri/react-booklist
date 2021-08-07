@@ -12,6 +12,7 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import Alert from '@material-ui/lab/Alert';
+import { likeBook } from '../action';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function BookDetail({ book, dispatch}) {
+function BookDetail({ book, likeBook}) {
   const classes = useStyles();
 
   if (!book) { 
@@ -70,14 +71,7 @@ function BookDetail({ book, dispatch}) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={
-          () => {
-            dispatch({
-              type: 'BOOK_LIKE',
-              title: book.title
-            })
-          }
-        }>
+      <IconButton aria-label="add to favorites" onClick= {() => { likeBook(book)}}>
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
@@ -95,5 +89,6 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps)(BookDetail)
-
+export default connect(
+  mapStateToProps, { likeBook }
+)(BookDetail)
