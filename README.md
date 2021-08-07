@@ -18,8 +18,8 @@
 -TopNav : 탑 메뉴바
 
 ### Screenshots
-| <img width="570" alt="Screen Shot 2021-08-08 at 12 22 33 AM" src="https://user-images.githubusercontent.com/33794732/128605254-920eb0f0-163a-479e-9fa5-aaf4e8a3aea8.png"> | <img width="570" alt="Screen Shot 2021-08-08 at 12 22 48 AM" src="https://user-images.githubusercontent.com/33794732/128605258-feb68e08-474e-43e7-b3db-796b3570e6af.png"> | <img width="570" alt="Screen Shot 2021-08-08 at 12 23 40 AM" src="https://user-images.githubusercontent.com/33794732/128605259-061aa04f-78d9-47be-b1c6-bb2c6f859759.png"> |
-|---|:---:|---:|
+| <img width="570" alt="Screen Shot 2021-08-08 at 12 22 33 AM" src="https://user-images.githubusercontent.com/33794732/128605254-920eb0f0-163a-479e-9fa5-aaf4e8a3aea8.png"> |  <img width="570" alt="Screen Shot 2021-08-08 at 12 23 40 AM" src="https://user-images.githubusercontent.com/33794732/128605259-061aa04f-78d9-47be-b1c6-bb2c6f859759.png"> |
+|---|:---:|
 
 
 ### What I learned
