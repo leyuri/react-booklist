@@ -1,3 +1,5 @@
+import produce from "immer"
+
 const initialState = {
     books:
         [
@@ -11,66 +13,77 @@ const initialState = {
             {
                 title: '부자 아빠 가난한 아빠',
                 subtitle: '(20주년 특별 기념판)(개정증보판)',
-                img: '',
+                img: 'https://bookthumb-phinf.pstatic.net/cover/133/473/13347349.jpg?udate=20210717',
+                desc: '기존 《부자 아빠 가난한 아빠》 제1권에는 없던 41개의 ‘20년 전 그리고 오늘’과 10가지 ‘스터디 세션’ 등 총 500매 분량의 새로운 내용을 추가한 『부자 아빠 가난한 아빠(20주년 특별 기념판)』. 돈에 대한 선입관을 깨뜨리는 파격적인 내용과 세월이 흘러도 흔들리지 않는 기준이 되어 줄 투자의 원칙들을 담은 책이다.',
                 likes: 0
             },
             {
                 title: '월가의 영웅',
                 subtitle: '(전설로 떠나는)(개정판 2판)(양장본 HardCover)',
-                img: '',
+                desc: '이 책은 월가의 전설적인 인물 피터 린치가 개인투자자들을 위해 1989년에 출간했던 《월가의 영웅》최신 개정판이다. 월가에서 투자 귀재로 승승장구하던 그가 돌연 은퇴한 후 저술한 책으로 자서전 형식을 띠면서 주식에 관한 기본 정보를 담은 투자지침서이기도 하다. 2천만 달러에 불과한 마젤란펀드를 인수하여 13년간 운용하여 660배에 달하는 140억 달러 규모의 뮤추얼펀드로 성장시킨 비결을 담았다.',
+                img: 'https://bookthumb-phinf.pstatic.net/cover/119/570/11957015.jpg?udate=20210730',
                 likes: 0
             },
             {
                 title: '부의 추월차선',
                 subtitle: '',
-                img: '',
+                desc: '『부의 추월차선』은 30대에 자수성가한 백만장자 사업가이며 발명가인 엠제이 드마코가 죽도록 일해서 돈을 벌고, 아끼고, 모으는 것만으로는 절대 젊어서 부자가 될 수 없다고 말하며, ‘젊어서 부자가 되는 길’을 공개한다. 이 책에서 저자는 인도(人道), 서행차선, 추월차선으로 나누어 삶을 설명한다. 인도나 서행차선을 달리는 평범한 삶을 ‘현대판 노예’로 간주하며, 부의 비밀을 파헤치고 지름길로 향하는 문을 여는 ‘추월차선 법칙’을 소개한다. 추월차선에는 생산자만 존재하며, 생산자로 성공하면 원하는 것은 무엇이든 소비할 수 있다고 말한다. 이에 추월차선 진입을 예고하는 사업으로 임대시스템, 컴퓨터ㆍ소프트웨어 시스템, 콘텐츠 시스템, 유통시스템, 인적 자원 시스템을 꼽는다.',
+                img: 'https://bookthumb-phinf.pstatic.net/cover/072/907/07290748.jpg?udate=20130828',
                 likes: 0
             },
             {
                 title: '차트분석 무작정 따라하기',
                 subtitle: '',
-                img: '',
+                desc: '이 책은 차트분석을 다룬 도서입니다. 차트분석의 기초적이고 전반적인 내용을 학습할 수 있습니다.',
+                img: 'https://bookthumb-phinf.pstatic.net/cover/124/848/12484822.jpg?udate=20170930',
                 likes: 0
             },
             {
                 title: '돈, 뜨겁게 사랑하고 차갑게 다루어라',
                 subtitle: '(코스톨라니 투자총서 1)',
-                img: '',
+                desc: '유럽 제일의 투자자 코스톨라니가 넘치는 기지와 유머로 돈의 매력을 탐지하며 증권 거래와 투자심리에 중요한 변수인 투자의 근본적인 비밀과 기술을 설명하고 있다. 동시에 그는 투자자들에게 21세기 증권시장에 있어서 기회와 위험, 그리고 변화와 상승 · 하락에 대한 전망을 제시한다. 경제적인 성공에 결정적인 것은 돈에 대한 올바른 태도이며, 자신의 성격과 투자전략의 일치라고 말하는 저자의 돈과 투자에 대한 철학이 담겨 있다.',
+                img: 'https://bookthumb-phinf.pstatic.net/cover/095/765/09576588.jpg?udate=20200328',
                 likes: 0
             },
             {
                 title: '돈 공부는 처음이라',
                 subtitle: '(20주년 특별 기념판)(개정증보판)',
+                desc: '단돈 500만 원으로 시작했지만 이제는 투자 수익만으로 한 달에 1억 원을 버는 투자의 대가 김종봉(JB)의 경험을 베스트셀러 저자 제갈현열의 언어로 담아냈다. 사람들이 잘못 알고 있는 돈에 대한 상식을 짚어주고, 잘못된 상식으로 지금까지 돈 모으는 데 어려움을 겪던 사람들에게 도움이 되는 정보를 알려주는 책이다. 단순히 이론적인 정보만을 알려주는 것이 아니라, 돈 불리는 데 직접적인 도움이 되는 습관을 자산에 따라 4단계로 나누어 소개하여 누구나 따라 할 수 있도록 한다. 흙수저는 아무리 노력해도 부자가 될 수 없다는 생각에 버는 족족 다 써버리는 욜로족, 커가는 아이와 늘어나는 사교육비를 보며 한숨을 내쉬는 부부, 돈을 불리고 싶지만 어떻게 하는지 몰라 시작조차 하지 못하는 초보 투자자가 보면 크게 도움을 받을 수 있다.',
                 img: '',
                 likes: 0
             },
             {
                 title: '자본주의',
                 subtitle: '(EBS 다큐프라임)',
+                desc: '',
                 img: '',
                 likes: 0
             },
             {
                 title: '부동산 상식사전',
                 subtitle: '',
+                desc: '',
                 img: '',
                 likes: 0
             },
             {
                 title: '돈되는 재건축 재개발',
                 subtitle: '(한 권으로 끝내는)',
+                desc: '',
                 img: '',
                 likes: 0
             },
             {
                 title: '투자에 대한 생각',
                 subtitle: '',
+                desc: '',
                 img: '',
                 likes: 0
             },
             {
                 title: '넛지',
                 subtitle: '(양장본 HardCover)',
+                desc: '',
                 img: '',
                 likes: 0
             },
@@ -78,40 +91,28 @@ const initialState = {
     selected: undefined
 };
 
-// initialState.selected = initialState.books[0];
-
-function reducer(state = initialState, action) {
-    console.log("action", action);
-    console.log("state", state);
+const reducer = produce((state = initialState, action) => {
     switch (action.type) {
-        case 'BOOK_SELECT' :
-            return {
-                books: state.books,
-                selected: action.payload
-            }
-        case 'BOOK_LIKE' :
-            const newBooks = state.books.map((book) => {
+        case 'BOOK_SELECT':
+            state.selected = action.payload;
+            break;
+        case 'BOOK_LIKE':
+            state.books.forEach((book) => {
                 if (book.title === action.title) {
                     book.likes += 1;
                 }
-                return book;
-            })
-            return {
-                books: newBooks,
-                selected: state.selected
-            }
-        case 'BOOK_ADD' :
-            return {
-                books: state.books.concat({
-                    title: `Book ${Math.floor(Math.random() * 1000)}`,
-                    subtitle: `subtitle ${Math.floor(Math.random() * 1000)}`,
-                    likes : 0
-                }),
-                selected: state.selected
-            }
+            });
+            break;
+        case 'BOOK_ADD':
+            state.books.push({
+                title: `Book ${Math.floor(Math.random() * 1000)}`,
+                subtitle: `subtitle ${Math.floor(Math.random() * 1000)}`,
+                likes: 0
+            });
+            break;
         default:
-            return state;
+            break;
     }
-}
+}, initialState)
 
 export default reducer;

@@ -33,7 +33,7 @@ function TopNavBar({ addNewBook }) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        BookList
+                        경제/경영
                     </Typography>
                     <Button color="inherit" onClick={() => {
                         addNewBook()
