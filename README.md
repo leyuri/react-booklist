@@ -3,7 +3,6 @@
 
 ### Development environment
 - react.js
-- node.js
 - material-ui
 - redux, react-redux, immer
 
